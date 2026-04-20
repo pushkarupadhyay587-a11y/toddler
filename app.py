@@ -8,7 +8,7 @@ import os
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from engine.components import get_component_catalog, get_default_params
-from engine.simulator import simulate_dc
+from engine.simulator import simulate_dc, simulate_sweep
 
 app = Flask(__name__, static_folder="static", static_url_path="")
 CORS(app)
@@ -47,6 +47,32 @@ def run_simulation():
         return jsonify({
             "error": str(e),
             "converged": False
+        }), 500
+
+
+@app.route("/api/sweep", methods=["POST"])
+def run_sweep():
+    """
+    Run DC Parameter sweep.
+    """
+    try:
+        data = request.get_json()
+        circuit_json = data.get("circuit")
+        comp_id = data.get("sweep_comp_id")
+        param_name = data.get("sweep_param")
+        start_val = data.get("start_val")
+        end_val = data.get("end_val")
+        steps = data.get("steps", 10)
+
+        if not all(v is not None for v in [circuit_json, comp_id, param_name, start_val, end_val]):
+            return jsonify({"error": "Missing sweep parameters"}), 400
+
+        results = simulate_sweep(circuit_json, comp_id, param_name, float(start_val), float(end_val), int(steps))
+        return jsonify(results)
+
+    except Exception as e:
+        return jsonify({
+            "error": str(e)
         }), 500
 
 

@@ -405,27 +405,37 @@ document.addEventListener('DOMContentLoaded', () => {
     // ─── Search ───
     document.getElementById('component-search').addEventListener('input', (e) => {
         const query = e.target.value.toLowerCase();
-        const items = document.querySelectorAll('.comp-item');
-        let anyVisible = false;
+        const categories = document.querySelectorAll('.comp-category');
         
-        items.forEach(el => {
-            const name = el.querySelector('.comp-name').textContent.toLowerCase();
-            if (name.includes(query)) {
-                el.style.display = 'flex';
-                anyVisible = true;
+        categories.forEach(catEl => {
+            const items = catEl.querySelectorAll('.comp-item');
+            let anyVisible = false;
+            
+            items.forEach(el => {
+                const name = el.querySelector('.comp-name').textContent.toLowerCase();
+                if (name.includes(query)) {
+                    el.style.display = 'flex';
+                    anyVisible = true;
+                } else {
+                    el.style.display = 'none';
+                }
+            });
+
+            const header = catEl.querySelector('.comp-category-header');
+            const contents = catEl.querySelector('.comp-category-items');
+            
+            if (query.trim().length > 0) {
+                if (anyVisible) {
+                    catEl.style.display = 'block';
+                    header.classList.remove('collapsed');
+                    contents.classList.remove('collapsed');
+                } else {
+                    catEl.style.display = 'none';
+                }
             } else {
-                el.style.display = 'none';
+                catEl.style.display = 'block';
             }
         });
-
-        // Expand all categories if searching
-        const headers = document.querySelectorAll('.comp-category-header');
-        const contents = document.querySelectorAll('.comp-category-items');
-        
-        if (query.trim().length > 0) {
-            headers.forEach(el => el.classList.remove('collapsed'));
-            contents.forEach(el => el.classList.remove('collapsed'));
-        }
     });
 
     // ─── Toolbar Logic ───
@@ -484,7 +494,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.getElementById('btn-simulate').addEventListener('click', () => {
-        simEngine.runDCAnalysis();
+        if (typeof simEngine.openSimulationModal === 'function') {
+            simEngine.openSimulationModal();
+        } else {
+            simEngine.runDCAnalysis();
+        }
     });
 
     // Modals

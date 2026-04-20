@@ -766,3 +766,46 @@ def simulate_dc(circuit_json):
     solver = MNASolver(netlist)
     result = solver.solve_dc()
     return result.to_dict()
+
+
+def simulate_sweep(circuit_json, sweep_comp_id, sweep_param, start_val, end_val, steps):
+    """
+    Perform a parameter sweep across a component's parameter and capture DC results for each step.
+    """
+    from .netlist import parse_circuit_json
+    import numpy as np
+
+    sweep_results = []
+    
+    # We pre-calculate step values
+    x_values = np.linspace(start_val, end_val, steps)
+
+    for x_val in x_values:
+        # We re-parse circuit_json in every loop iteration because the solver mutates the netlist components.
+        # Alternatively, we could deepcopy the netlist, but parsing JSON is safe and reasonably fast.
+        netlist = parse_circuit_json(circuit_json)
+        
+        comp = netlist.components.get(sweep_comp_id)
+        if not comp:
+             raise ValueError(f"Component '{sweep_comp_id}' not found in circuit.")
+        
+        # Override the parameter
+        comp.params[sweep_param] = float(x_val)
+        
+        solver = MNASolver(netlist)
+        res = solver.solve_dc()
+        
+        point = {
+            "x": float(x_val),
+            "converged": res.converged,
+            "node_voltages": res.node_voltages,
+            "branch_currents": res.branch_currents,
+            "component_results": res.component_results
+        }
+        sweep_results.append(point)
+        
+    return {
+        "sweep_parameter": sweep_param,
+        "component_id": sweep_comp_id,
+        "results": sweep_results
+    }

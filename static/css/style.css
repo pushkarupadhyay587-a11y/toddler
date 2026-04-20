@@ -736,6 +736,59 @@ body {
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   SIMULATION MODAL
+   ═══════════════════════════════════════════════════════════════ */
+
+.sim-modal {
+    width: 600px;
+    max-width: 90vw;
+    max-height: 800px;
+    height: 90vh;
+}
+.sim-modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+.sim-config-group {
+    display: flex;
+    gap: 20px;
+    flex-shrink: 0;
+}
+.sim-config-col {
+    flex: 1;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-primary);
+    padding: 15px;
+    border-radius: var(--border-radius);
+}
+.sim-config-col h4 {
+    margin-bottom: 12px;
+    font-size: 13px;
+    color: var(--accent-blue);
+    border-bottom: 1px solid var(--border-primary);
+    padding-bottom: 6px;
+}
+.sweep-range-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+.sweep-range-col {
+    flex: 1;
+}
+.chart-container {
+    flex: 1;
+    min-height: 250px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--border-radius);
+    padding: 10px;
+    position: relative;
+}
+
+/* ═══════════════════════════════════════════════════════════════
    ANIMATIONS
    ═══════════════════════════════════════════════════════════════ */
 

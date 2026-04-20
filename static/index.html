@@ -1,49 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="TODDLER — Professional Electronic Circuit Builder and Simulator with scientifically accurate component models">
+    <meta name="description"
+        content="TODDLER — Professional Electronic Circuit Builder and Simulator with scientifically accurate component models">
     <title>TODDLER — Circuit Builder</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <!-- ═══ TOP MENU BAR ═══ -->
     <header id="menu-bar">
         <div class="menu-left">
             <div class="app-logo" id="app-logo">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="3"/>
-                    <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+                    <circle cx="12" cy="12" r="3" />
+                    <path
+                        d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
                 </svg>
                 <span>TODDLER</span>
             </div>
             <nav class="menu-items">
                 <button class="menu-btn" id="btn-new" title="New Circuit (Ctrl+N)">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                        <polyline points="14,2 14,8 20,8" />
+                        <line x1="12" y1="18" x2="12" y2="12" />
+                        <line x1="9" y1="15" x2="15" y2="15" />
+                    </svg>
                     New
                 </button>
                 <button class="menu-btn" id="btn-open" title="Open Circuit (Ctrl+O)">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z" />
+                    </svg>
                     Open
                 </button>
                 <button class="menu-btn" id="btn-save" title="Save Circuit (Ctrl+S)">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17,21 17,13 7,13 7,21"/><polyline points="7,3 7,8 15,8"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z" />
+                        <polyline points="17,21 17,13 7,13 7,21" />
+                        <polyline points="7,3 7,8 15,8" />
+                    </svg>
                     Save
                 </button>
                 <div class="menu-separator"></div>
                 <button class="menu-btn active" id="btn-dc-analysis" title="DC Operating Point Analysis">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                    </svg>
                     DC Analysis
                 </button>
             </nav>
         </div>
         <div class="menu-right">
             <button class="menu-btn sim-btn" id="btn-simulate" title="Run Simulation">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5,3 19,12 5,21" />
+                </svg>
                 Run Simulation
             </button>
         </div>
@@ -53,40 +74,71 @@
     <div id="toolbar">
         <div class="tool-group">
             <button class="tool-btn active" id="tool-select" data-tool="select" title="Select / Move (V)">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z" />
+                </svg>
             </button>
             <button class="tool-btn" id="tool-wire" data-tool="wire" title="Draw Wire (W)">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20L10 14"/><circle cx="4" cy="20" r="2" fill="currentColor"/><path d="M14 10L20 4"/><circle cx="20" cy="4" r="2" fill="currentColor"/><path d="M10 14h4v-4"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 20L10 14" />
+                    <circle cx="4" cy="20" r="2" fill="currentColor" />
+                    <path d="M14 10L20 4" />
+                    <circle cx="20" cy="4" r="2" fill="currentColor" />
+                    <path d="M10 14h4v-4" />
+                </svg>
             </button>
         </div>
         <div class="tool-separator"></div>
         <div class="tool-group">
             <button class="tool-btn" id="tool-zoom-in" title="Zoom In (+)">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    <line x1="11" y1="8" x2="11" y2="14" />
+                    <line x1="8" y1="11" x2="14" y2="11" />
+                </svg>
             </button>
             <button class="tool-btn" id="tool-zoom-out" title="Zoom Out (-)">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    <line x1="8" y1="11" x2="14" y2="11" />
+                </svg>
             </button>
             <button class="tool-btn" id="tool-zoom-fit" title="Zoom to Fit (F)">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3" />
+                </svg>
             </button>
         </div>
         <div class="tool-separator"></div>
         <div class="tool-group">
             <button class="tool-btn" id="tool-rotate" title="Rotate Selected (R)">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1,4 1,10 7,10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="1,4 1,10 7,10" />
+                    <path d="M3.51 15a9 9 0 102.13-9.36L1 10" />
+                </svg>
             </button>
             <button class="tool-btn" id="tool-delete" title="Delete Selected (Del)">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3,6 5,6 21,6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="3,6 5,6 21,6" />
+                    <path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2" />
+                </svg>
             </button>
         </div>
         <div class="tool-separator"></div>
         <div class="tool-group">
             <button class="tool-btn" id="tool-undo" title="Undo (Ctrl+Z)">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1,4 1,10 7,10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="1,4 1,10 7,10" />
+                    <path d="M3.51 15a9 9 0 102.13-9.36L1 10" />
+                </svg>
             </button>
             <button class="tool-btn" id="tool-redo" title="Redo (Ctrl+Y)">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23,4 23,10 17,10"/><path d="M20.49 15a9 9 0 11-2.13-9.36L23 10"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="23,4 23,10 17,10" />
+                    <path d="M20.49 15a9 9 0 11-2.13-9.36L23 10" />
+                </svg>
             </button>
         </div>
         <div class="toolbar-spacer"></div>
@@ -101,7 +153,10 @@
                 <h2>COMPONENTS</h2>
             </div>
             <div class="search-box">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
                 <input type="text" id="component-search" placeholder="Search components..." autocomplete="off">
             </div>
             <div id="component-list" class="component-list">
@@ -127,9 +182,11 @@
             </div>
             <div id="props-content" class="props-content">
                 <div class="props-empty">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3">
-                        <circle cx="12" cy="12" r="3"/>
-                        <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                        opacity="0.3">
+                        <circle cx="12" cy="12" r="3" />
+                        <path
+                            d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
                     </svg>
                     <p>Select a component to view its properties</p>
                 </div>
@@ -171,6 +228,63 @@
         </div>
     </div>
 
+    9 <!-- ═══ Modal: Simulation & Graphing ═══ -->
+    <div id="sim-modal-overlay" class="modal-overlay" style="display:none;">
+        <div class="modal sim-modal" id="modal-sim">
+            <div class="modal-header">
+                <h3>Simulation Sweep & Graph</h3>
+                <button class="modal-close" id="sim-modal-close">&times;</button>
+            </div>
+            <div class="modal-body sim-modal-body">
+                <div class="sim-config-group">
+                    <div class="sim-config-col">
+                        <h4>Input Sweep</h4>
+                        <label class="modal-label">Sweep Component:</label>
+                        <select id="sweep-comp-select" class="modal-input"></select>
+
+                        <label class="modal-label">Sweep Parameter:</label>
+                        <select id="sweep-param-select" class="modal-input"></select>
+
+                        <div class="sweep-range-row">
+                            <div class="sweep-range-col">
+                                <label class="modal-label">Start</label>
+                                <input type="number" id="sweep-start" class="modal-input" value="0">
+                            </div>
+                            <div class="sweep-range-col">
+                                <label class="modal-label">End</label>
+                                <input type="number" id="sweep-end" class="modal-input" value="10">
+                            </div>
+                            <div class="sweep-range-col">
+                                <label class="modal-label">Steps</label>
+                                <input type="number" id="sweep-steps" class="modal-input" value="50">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sim-config-col">
+                        <h4>Output Measurement</h4>
+                        <label class="modal-label">Output Source:</label>
+                        <select id="out-source-select" class="modal-input"></select>
+
+                        <label class="modal-label">Metric:</label>
+                        <select id="out-metric-select" class="modal-input">
+                            <option value="voltage">Voltage (V)</option>
+                            <option value="current">Current (A)</option>
+                            <option value="power">Power (W)</option>
+                        </select>
+
+                        <button class="modal-save-btn" id="run-sweep-btn" style="margin-top:20px;">Run Sweep</button>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="sim-chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/components.js"></script>
     <script src="js/canvas.js"></script>
     <script src="js/wire.js"></script>
@@ -178,4 +292,5 @@
     <script src="js/simulation.js"></script>
     <script src="js/app.js"></script>
 </body>
+
 </html>
